@@ -59,7 +59,14 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter depositor name: ");
+        // Using default constructor
+        BankAccount defaultAccount = new BankAccount();
+        System.out.println("Default Account:");
+        defaultAccount.display();
+        BankAccount.displayInterestRate();
+
+        // Using parameterized constructor
+        System.out.print("\nEnter depositor name: ");
         String name = scanner.nextLine();
 
         System.out.print("Enter account number: ");
@@ -75,6 +82,7 @@ public class Main {
         BankAccount account = new BankAccount(name, accountNumber, accountType, initialBalance);
         account.displayInterestRate();
 
+        // Deposit and withdraw
         System.out.print("Enter amount to deposit: ");
         double depositAmount = scanner.nextDouble();
         account.deposit(depositAmount);
@@ -86,3 +94,4 @@ public class Main {
         account.display();
     }
 }
+
